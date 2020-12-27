@@ -8,12 +8,19 @@ library(mailR)
 ### read from a database
 
 ### data format:
+
 ## Subscription Details
-#name: chr [1:7] "Regan-John Daniels"...
-#$ coin_fullName: chr [1:7] "EOS" "Bitcoin" "Ripple" "Bitcoin" ...
-# $ coin_symbol: chr [1:7] "EOS" "BTC" "XRP" "BTC" ...
-# $ frequency: num [1:7] 1 2 2 2 1 2 1
-str(subscription_details) <- read_xlsx(file.path('C:/Users/Roger/Documents', 'test.xlsx'), sheet = 1)
+# $name: chr [1:7] "Regan-John Daniels"...
+# $coin_fullName: chr [1:7] "EOS" "Bitcoin" "Ripple" "Bitcoin" ...
+# $coin_symbol: chr [1:7] "EOS" "BTC" "XRP" "BTC" ...
+# $frequency: num [1:7] 1 2 2 2 1 2 1
+
+## Contact Details
+# $name     : chr [1:2] "Regan-John Daniels"...
+# $email    : chr [1:2] "regandaniels@gmail.com"
+# $cellphone: chr [1:2] "0829453" NA
+
+subscription_details <- read_xlsx(file.path('C:/Users/Roger/Documents', 'test.xlsx'), sheet = 1)
 contact_details <- read_xlsx(file.path('C:/Users/Roger/Documents', 'test.xlsx'), sheet = 2)
 
 ### Extract list of cryptocurrency prices that need to be used
@@ -48,11 +55,11 @@ for(i in 1:length(subscribers)){
   
   ### Send email to respective subscriber
   send.mail(from = "Data Squared <datasquared20@gmail.com>",
-            to = paste0('<', subscriber_email, '>'), #'<reganjohndaniels@gmail.com>'
-            #replyTo = c("Reply to someone else <reganjohndaniels@gmail.com>"),
+            to = paste0('<', subscriber_email, '>'), #'
+            #replyTo = c("Reply to someone else <res@gmail.com>"),
             subject = subject,
             body = body,
-            smtp = list(host.name = "smtp.gmail.com", port = 465, user.name = "datasquared20@gmail.com", passwd = "ReganjohnD1", ssl = TRUE),
+            smtp = list(host.name = "smtp.gmail.com", port = 465, user.name = "email@gmail.com", passwd = "password", ssl = TRUE),
             authenticate = TRUE,
             send = TRUE)
 }
