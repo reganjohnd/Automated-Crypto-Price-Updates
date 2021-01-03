@@ -8,3 +8,5 @@ The script gets the pricing data through the www.coinbase.com api.
 An email is sent to each subscriber containing only the prices for which they signed up. Each subscriber, threrfore, recieves an individualised email, with their name in the body and only the crypto currency prices for which they signed up.
 
 I used Windows Task Scheduler to schedule this script to run every morning. That way, I have an automated way to send emails with relevant info to my subscriber list. I only have to maintain the database / Excel Workbook.
+
+Check out my video about this: https://youtu.be/s2XGyXyW0CQ
